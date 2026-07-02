@@ -403,8 +403,33 @@
     }
 
     /* ── MODE VISIBILITY ──────────────────────────────── */
-    .mode-short [data-full-only] { display: none !important; }
-    .mode-full  [data-short-only] { display: none !important; }
+    /* Option 1 — One Day: hide anything marked two-only */
+    .mode-one [data-two-only] { display: none !important; }
+    /* Option 2 — Two Days: hide anything marked one-only */
+    .mode-two [data-one-only] { display: none !important; }
+
+    /* ── DAY 2 CONTEXT TIP ────────────────────────────── */
+    .day2-context {
+      background: var(--amber-soft);
+      border: 1px solid rgba(217, 130, 44, 0.25);
+      border-radius: 8px;
+      padding: 11px 16px;
+      font-size: 13.5px;
+      color: var(--body);
+      margin-bottom: 20px;
+      line-height: 1.55;
+    }
+    .day2-context .inline-link {
+      background: none;
+      border: none;
+      padding: 0;
+      color: var(--amber);
+      font-weight: 700;
+      cursor: pointer;
+      font-size: 13.5px;
+      text-decoration: underline;
+      font-family: inherit;
+    }
 
     /* ── PROS/CONS CARD ───────────────────────────────── */
     .pros-cons-section {
@@ -470,6 +495,59 @@
 
     @media (max-width: 500px) {
       .pros-cons-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── TWO-DAY MAPS CONTAINER ──────────────────────── */
+    .two-day-maps {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .two-day-maps .route-map {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .two-day-maps { grid-template-columns: 1fr; }
+    }
+
+    /* ── DAY DIVIDER ──────────────────────────────────── */
+    .day-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 28px 0 24px;
+    }
+
+    .day-divider-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .day-divider-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .day-divider-date {
+      font-family: 'Josefin Sans', sans-serif;
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--deep);
+    }
+
+    .day-divider-sub {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 10.5px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
     }
 
     /* ── TIPS SECTION ─────────────────────────────────── */
@@ -548,6 +626,8 @@
       .hero { padding: 40px 20px 36px; }
       .tips-card { padding: 22px 18px 20px; }
       .route-map-header { flex-wrap: wrap; }
+      .toggle-btn { padding: 10px 8px; font-size: 11.5px; }
+      .toggle-sub { font-size: 9px; }
     }
 
     @media (prefers-reduced-motion: no-preference) {
@@ -583,7 +663,7 @@
     }
   </style>
 </head>
-<body class="mode-full">
+<body class="mode-one">
 
   <!-- HERO -->
   <header class="hero">
@@ -606,18 +686,18 @@
 
     <!-- ── ITINERARY TOGGLE ────────────────────────────── -->
     <div class="itinerary-toggle">
-      <button class="toggle-btn toggle-active" id="btn-full" onclick="setMode('full')">
-        Full Day
-        <span class="toggle-sub">9 stops · back by 5:30 PM</span>
+      <button class="toggle-btn toggle-active" id="btn-one" onclick="setMode('one')">
+        Option 1 — One Day
+        <span class="toggle-sub">All 9 stops · Friday, July 17</span>
       </button>
-      <button class="toggle-btn" id="btn-short" onclick="setMode('short')">
-        Short Day
-        <span class="toggle-sub">6 stops · back by 2:00 PM</span>
+      <button class="toggle-btn" id="btn-two" onclick="setMode('two')">
+        Option 2 — Two Days
+        <span class="toggle-sub">6 stops Fri · 3 stops Sat</span>
       </button>
     </div>
 
     <!-- ── ROUTE MAP (Full Day) ───────────────────────── -->
-    <div class="route-map" data-full-only>
+    <div class="route-map" data-one-only>
       <div class="route-map-header">
         <p class="section-label">Day Route</p>
         <a href="https://www.google.com/maps/dir/303+Geyser+St,+West+Yellowstone,+MT+59758/Madison+Junction+Picnic+Area,+Yellowstone+National+Park/Fairy+Falls+Trailhead,+Yellowstone/Grand+Prismatic+Spring,+Yellowstone/Old+Faithful,+Yellowstone/Lone+Star+Geyser,+Yellowstone/Hayden+Valley,+Wyoming+82190/Artist+Point,+Yellowstone/Norris+Geyser+Basin,+Yellowstone/303+Geyser+St,+West+Yellowstone,+MT+59758"
@@ -787,10 +867,13 @@
       </svg>
     </div><!-- /route-map full -->
 
-    <!-- ── ROUTE MAP (Short Day) ─────────────────────── -->
-    <div class="route-map" data-short-only>
+    <!-- ── ROUTE MAPS — Option 2: Two Days ─────────────── -->
+    <div class="two-day-maps" data-two-only>
+
+    <!-- Friday, July 17 map -->
+    <div class="route-map">
       <div class="route-map-header">
-        <p class="section-label">Day Route</p>
+        <p class="section-label">Friday, July 17</p>
         <a href="https://www.google.com/maps/dir/303+Geyser+St,+West+Yellowstone,+MT+59758/Madison+Junction+Picnic+Area,+Yellowstone+National+Park/Fairy+Falls+Trailhead,+Yellowstone/Grand+Prismatic+Spring,+Yellowstone/Old+Faithful,+Yellowstone/Lone+Star+Geyser,+Yellowstone/303+Geyser+St,+West+Yellowstone,+MT+59758"
            target="_blank" rel="noopener" class="maps-full-btn">Open Full Route in Maps →</a>
       </div>
@@ -919,9 +1002,132 @@
         </g>
 
       </svg>
-    </div><!-- /route-map short -->
+    </div><!-- /route-map fri -->
 
-    <p class="section-label">The Day</p>
+    <!-- Saturday, July 18 map -->
+    <div class="route-map">
+      <div class="route-map-header">
+        <p class="section-label">Saturday, July 18</p>
+        <a href="https://www.google.com/maps/dir/303+Geyser+St,+West+Yellowstone,+MT+59758/Norris+Geyser+Basin,+Yellowstone+National+Park/Artist+Point,+Yellowstone/Hayden+Valley,+Wyoming+82190/303+Geyser+St,+West+Yellowstone,+MT+59758"
+           target="_blank" rel="noopener" class="maps-full-btn">Open Full Route in Maps →</a>
+      </div>
+      <svg viewBox="0 0 480 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Map of the Saturday Day 2 Yellowstone route: Norris, Canyon, Hayden Valley">
+
+        <!-- ─ Park boundary ─ -->
+        <rect x="26" y="14" width="440" height="332" rx="10" fill="#EDF3EC" stroke="#B0C4AE" stroke-width="1.5"/>
+
+        <!-- ─ West Yellowstone town block ─ -->
+        <rect x="10" y="148" width="16" height="20" rx="2" fill="#D4DDE5" stroke="#A8B8C4" stroke-width="1"/>
+
+        <!-- ─ Yellowstone Lake ─ -->
+        <path d="M 253,247 C 244,233 241,214 247,200 C 253,188 270,183 292,183 C 318,183 335,187 346,192 C 366,199 394,216 408,235 C 418,252 413,272 400,283 C 385,293 362,296 340,292 C 318,288 298,279 282,268 C 268,258 257,252 253,247 Z"
+              fill="#C5DCE8" stroke="#8DB8CE" stroke-width="1"/>
+        <text x="368" y="248" text-anchor="middle" fill="#4E86A0" font-size="8.5" font-style="italic" font-family="'Josefin Sans', Arial, sans-serif" letter-spacing="0.05em">Yellowstone</text>
+        <text x="368" y="260" text-anchor="middle" fill="#4E86A0" font-size="8.5" font-style="italic" font-family="'Josefin Sans', Arial, sans-serif" letter-spacing="0.05em">Lake</text>
+
+        <!-- ─ Context roads (thin gray) ─ -->
+        <path d="M 195,135 C 194,105 193,72 198,44" stroke="#BEC9D0" stroke-width="1.5" fill="none"/>
+        <path d="M 198,44 C 244,52 288,58 335,67" stroke="#BEC9D0" stroke-width="1.5" fill="none"/>
+        <path d="M 335,67 C 320,90 305,112 283,132" stroke="#BEC9D0" stroke-width="1.5" fill="none"/>
+        <path d="M 346,192 C 380,192 420,188 460,184" stroke="#BEC9D0" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+        <!-- ─ DAY 1 GHOST ROUTES (west side — very faint, done yesterday) ─ -->
+        <path d="M 22,158 C 58,157 94,162 126,163" stroke="#D9D0C8" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+        <path d="M 126,163 C 127,179 131,196 136,207" stroke="#D9D0C8" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+        <path d="M 136,207 C 138,216 139,224 141,230" stroke="#D9D0C8" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+        <path d="M 141,230 C 145,236 149,241 153,245" stroke="#D9D0C8" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+        <!-- Old Faithful east to lake (Day 1 full route, ghost) -->
+        <path d="M 141,230 C 172,232 210,240 253,247 C 288,247 320,226 346,192" stroke="#D9D0C8" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+        <!-- ─ TODAY'S DAY 2 ROUTE (amber) ─ -->
+
+        <!-- WY → Madison -->
+        <path d="M 22,158 C 58,157 94,162 126,163"
+              stroke="#D9822C" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- Madison → Norris (north through Gibbon canyon) -->
+        <path d="M 126,163 C 148,153 173,143 195,135"
+              stroke="#D9822C" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- Norris → Canyon (east) -->
+        <path d="M 195,135 C 222,135 252,136 282,138"
+              stroke="#D9822C" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- Canyon → Hayden Valley (south, short leg) -->
+        <path d="M 282,138 C 279,144 275,150 271,155"
+              stroke="#D9822C" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+        <!-- RETURN (dashed): Hayden Valley → Canyon → Norris → Madison → WY -->
+        <path d="M 271,155 C 275,150 278,143 282,138"
+              stroke="#D9822C" stroke-width="2.5" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+        <path d="M 282,138 C 252,136 222,135 195,135"
+              stroke="#D9822C" stroke-width="2.5" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+        <path d="M 195,135 C 173,143 148,153 126,163"
+              stroke="#D9822C" stroke-width="2.5" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+        <path d="M 126,163 C 94,162 58,157 22,158"
+              stroke="#D9822C" stroke-width="2.5" fill="none" stroke-dasharray="5,3" stroke-linecap="round"/>
+
+        <!-- ─ ACTIVE STOP MARKERS ─ -->
+
+        <!-- START (West Yellowstone) -->
+        <circle cx="22" cy="158" r="9" fill="#D9822C" stroke="white" stroke-width="2"/>
+        <text x="22" y="162.5" text-anchor="middle" fill="white" font-size="7.5" font-weight="700" font-family="'Josefin Sans', Arial, sans-serif">S</text>
+
+        <!-- 2 Norris -->
+        <circle cx="195" cy="135" r="7" fill="white" stroke="#D9822C" stroke-width="2"/>
+        <text x="195" y="139" text-anchor="middle" fill="#D9822C" font-size="8" font-weight="700" font-family="'Josefin Sans', Arial, sans-serif">2</text>
+
+        <!-- 3 Canyon / Artist Point -->
+        <circle cx="282" cy="138" r="7" fill="white" stroke="#D9822C" stroke-width="2"/>
+        <text x="282" y="142" text-anchor="middle" fill="#D9822C" font-size="8" font-weight="700" font-family="'Josefin Sans', Arial, sans-serif">3</text>
+
+        <!-- 4 Hayden Valley -->
+        <circle cx="271" cy="155" r="7" fill="white" stroke="#D9822C" stroke-width="2"/>
+        <text x="271" y="159" text-anchor="middle" fill="#D9822C" font-size="8" font-weight="700" font-family="'Josefin Sans', Arial, sans-serif">4</text>
+
+        <!-- ─ DAY 1 GHOST MARKERS (muted — done yesterday) ─ -->
+        <circle cx="126" cy="163" r="5.5" fill="#EEF1F3" stroke="#C0CDD4" stroke-width="1.5"/>
+        <circle cx="136" cy="207" r="5.5" fill="#EEF1F3" stroke="#C0CDD4" stroke-width="1.5"/>
+        <circle cx="133" cy="221" r="4.5" fill="#EEF1F3" stroke="#C0CDD4" stroke-width="1.5"/>
+        <circle cx="141" cy="230" r="5.5" fill="#EEF1F3" stroke="#C0CDD4" stroke-width="1.5"/>
+        <circle cx="153" cy="245" r="5"   fill="#EEF1F3" stroke="#C0CDD4" stroke-width="1.5"/>
+
+        <!-- ─ LABELS ─ -->
+        <text x="22"  y="144" text-anchor="middle" fill="#1A3044" font-size="7" font-weight="700" font-family="'Josefin Sans', Arial, sans-serif" letter-spacing="0.04em">WEST YS</text>
+        <text x="118" y="153" text-anchor="end"    fill="#3A4E5A" font-size="7"   font-family="'Josefin Sans', Arial, sans-serif">Madison</text>
+        <text x="191" y="124" text-anchor="middle" fill="#3A4E5A" font-size="7"   font-family="'Josefin Sans', Arial, sans-serif">Norris</text>
+        <text x="265" y="147" text-anchor="end"    fill="#3A4E5A" font-size="7"   font-family="'Josefin Sans', Arial, sans-serif">Hayden</text>
+        <text x="293" y="136" text-anchor="start"  fill="#3A4E5A" font-size="6.5" font-family="'Josefin Sans', Arial, sans-serif">Canyon</text>
+        <!-- Day 1 ghost labels (muted) -->
+        <text x="117" y="174" text-anchor="end"    fill="#B0C0C8" font-size="6.5" font-family="'Josefin Sans', Arial, sans-serif">Day 1</text>
+        <text x="150" y="205" text-anchor="start"  fill="#B0C0C8" font-size="6"   font-family="'Josefin Sans', Arial, sans-serif">Fairy Falls</text>
+        <text x="154" y="232" text-anchor="start"  fill="#B0C0C8" font-size="6"   font-family="'Josefin Sans', Arial, sans-serif">Old Faithful</text>
+        <text x="196" y="36"  text-anchor="middle" fill="#BEC9D0" font-size="7"   font-family="'Josefin Sans', Arial, sans-serif">Mammoth ↑</text>
+
+        <!-- ─ Compass ─ -->
+        <g transform="translate(454,32)">
+          <circle cx="0" cy="0" r="12" fill="white" fill-opacity="0.7" stroke="#D0D8DE" stroke-width="1"/>
+          <text x="0" y="-3" text-anchor="middle" fill="#3A4E5A" font-size="7" font-weight="700" font-family="Arial">N</text>
+          <line x1="0" y1="1" x2="0" y2="7" stroke="#3A4E5A" stroke-width="1.5" stroke-linecap="round"/>
+        </g>
+
+        <!-- ─ Legend ─ -->
+        <g transform="translate(28,342)">
+          <line x1="0"   y1="4" x2="22"  y2="4" stroke="#D9822C" stroke-width="2.5" stroke-linecap="round"/>
+          <text x="26"  y="8" fill="#3A4E5A" font-size="7" font-family="'Josefin Sans', Arial, sans-serif">Today's route</text>
+          <line x1="105" y1="4" x2="127" y2="4" stroke="#D9822C" stroke-width="2.5" stroke-dasharray="5,3" stroke-linecap="round"/>
+          <text x="131" y="8" fill="#3A4E5A" font-size="7" font-family="'Josefin Sans', Arial, sans-serif">Return path</text>
+          <line x1="230" y1="4" x2="252" y2="4" stroke="#D9D0C8" stroke-width="1.5" stroke-dasharray="4,3" stroke-linecap="round"/>
+          <text x="256" y="8" fill="#9BB0BB" font-size="7" font-family="'Josefin Sans', Arial, sans-serif">Done on Day 1</text>
+        </g>
+
+      </svg>
+    </div><!-- /route-map sat -->
+
+    </div><!-- /two-day-maps -->
+
+    <p class="section-label" data-one-only>The Day — Friday, July 17</p>
+    <p class="section-label" data-two-only>Day 1 — Friday, July 17</p>
 
     <div class="stops">
 
@@ -1045,7 +1251,7 @@
       </div>
 
       <!-- Stop 7 -->
-      <div class="stop" data-full-only>
+      <div class="stop" data-one-only>
         <div class="stop-line"></div>
         <div class="stop-time-col">
           <div class="stop-time">1:00</div>
@@ -1065,7 +1271,7 @@
       </div>
 
       <!-- Stop 8 -->
-      <div class="stop" data-full-only>
+      <div class="stop" data-one-only>
         <div class="stop-line"></div>
         <div class="stop-time-col">
           <div class="stop-time">2:30</div>
@@ -1085,7 +1291,7 @@
       </div>
 
       <!-- Stop 9 -->
-      <div class="stop" data-full-only>
+      <div class="stop" data-one-only>
         <div class="stop-time-col">
           <div class="stop-time">4:15</div>
           <div class="stop-time-end">– 5:30 PM</div>
@@ -1103,34 +1309,95 @@
         </div>
       </div>
 
-    </div><!-- /stops -->
+      <!-- Saturday section divider (Option 2 only) -->
+      <div class="day-divider" data-two-only>
+        <div class="day-divider-line"></div>
+        <div class="day-divider-label">
+          <span class="day-divider-date">Day 2 — Saturday, July 18</span>
+          <span class="day-divider-sub">East side loop · back by 2:30 PM</span>
+        </div>
+        <div class="day-divider-line"></div>
+      </div>
 
-    <!-- PROS/CONS (Short Day only) -->
-    <div class="pros-cons-section" data-short-only>
-      <div class="pros-cons-card">
-        <p class="section-label">Short Day Trade-offs</p>
-        <div class="pros-cons-grid">
-          <div>
-            <p class="pros-cons-heading">✅ What you gain</p>
-            <ul class="pros-list">
-              <li>~2 hours less driving and ~90 fewer miles</li>
-              <li>Back at the lodge by 2:00 PM — afternoon completely free</li>
-              <li>Avoids Friday's east-side congestion entirely</li>
-              <li>More relaxed pace with no long mid-park haul while tired</li>
-              <li>Still covers all three best thermal features and the western wildlife corridor</li>
-            </ul>
-          </div>
-          <div>
-            <p class="pros-cons-heading">⚠️ What you miss</p>
-            <ul class="cons-list">
-              <li>Grand Canyon of Yellowstone &amp; Artist Point — one of the park's most dramatic sights</li>
-              <li>Hayden Valley in the prime late-afternoon wildlife window — best grizzly and wolf country</li>
-              <li>Norris Geyser Basin — the park's hottest thermal area and least touristy of the three basins</li>
-            </ul>
-          </div>
+      <!-- Day 2, Stop 1 — Depart -->
+      <div class="stop" data-two-only>
+        <div class="stop-line"></div>
+        <div class="stop-time-col">
+          <div class="stop-time">7:00 AM</div>
+        </div>
+        <div class="stop-dot"></div>
+        <div class="stop-card">
+          <span class="stop-card-tag tag-depart">Day 2 · Departure</span>
+          <h2 class="stop-card-title">Depart West Yellowstone</h2>
+          <p class="stop-card-body">A slightly later start than Friday — 7:00 AM gives you time for a proper breakfast and still puts you at Norris before the organized tour groups arrive around 9–10 AM. Today's loop stays on the north and east sides of the Grand Loop. Drive east on US-191 toward Madison Junction, then north through the Gibbon River canyon to Norris.</p>
+          <ul class="stop-highlights">
+            <li>Drive east: West Yellowstone → Madison → Norris (~42 miles, ~55 min)</li>
+            <li>Leave by 7:00 AM to beat tour buses at Norris — it's a small lot</li>
+          </ul>
+          <a href="https://maps.google.com/?q=303+Geyser+St,+West+Yellowstone,+MT+59758" target="_blank" rel="noopener" class="stop-maps-link">📍 303 Geyser St, West Yellowstone, MT 59758 — Lodging</a>
         </div>
       </div>
-    </div>
+
+      <!-- Day 2, Stop 2 — Norris -->
+      <div class="stop" data-two-only>
+        <div class="stop-line"></div>
+        <div class="stop-time-col">
+          <div class="stop-time">7:55</div>
+          <div class="stop-time-end">– 9:15 AM</div>
+        </div>
+        <div class="stop-dot"></div>
+        <div class="stop-card">
+          <span class="stop-card-tag tag-thermal">Thermal</span>
+          <h2 class="stop-card-title">Norris Geyser Basin</h2>
+          <p class="stop-card-body">The hottest, most acidic, and most dynamic thermal basin in the park. Temperatures here reach 459°F just below the surface — the plumbing is still actively evolving, so features change year to year in ways you don't see elsewhere. Walk the Porcelain Basin loop (0.75 miles, flat and open — a stark white silica landscape) and then head into the Back Basin loop (1.5 miles) to find Steamboat Geyser, the world's tallest active geyser at 300–400 feet when it fully erupts. It doesn't erupt on a schedule, but the cone and the surrounding features make the walk worth it regardless.</p>
+          <ul class="stop-highlights">
+            <li>Back Basin loop (1.5 mi): passes Steamboat Geyser — world's tallest active geyser</li>
+            <li>Porcelain Basin loop (0.75 mi): bright open silica flats, good if time is short</li>
+          </ul>
+          <a href="https://maps.google.com/?q=Norris+Geyser+Basin,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Norris Geyser Basin — Open in Maps</a>
+        </div>
+      </div>
+
+      <!-- Day 2, Stop 3 — Grand Canyon -->
+      <div class="stop" data-two-only>
+        <div class="stop-line"></div>
+        <div class="stop-time-col">
+          <div class="stop-time">9:35</div>
+          <div class="stop-time-end">– 11:30 AM</div>
+        </div>
+        <div class="stop-dot"></div>
+        <div class="stop-card">
+          <span class="stop-card-tag tag-canyon">Canyon</span>
+          <h2 class="stop-card-title">Grand Canyon of Yellowstone</h2>
+          <p class="stop-card-body">Drive east 12 miles from Norris to Canyon Village (~20 min). The South Rim Trail is an easy 1-mile walk to Artist Point — the most photographed spot in the park, with its iconic view of the Lower Falls plunging 308 feet into the vivid yellow-walled canyon. The walls get their color from iron oxides and hydrothermal alteration — the same chemistry driving everything you've seen on the trip. If the group has energy, Uncle Tom's Trail drops roughly 300 feet via steep metal staircases (328 steps) to a platform near the base of the falls. Allow 1.5–2 hours to do both properly.</p>
+          <ul class="stop-highlights">
+            <li>South Rim Trail to Artist Point: easy 1-mile walk, the park's most iconic viewpoint</li>
+            <li>Uncle Tom's Trail (optional): 328 steep metal steps, ~300 ft descent to near the base of the falls</li>
+          </ul>
+          <a href="https://maps.google.com/?q=Artist+Point,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Artist Point — Open in Maps</a>
+        </div>
+      </div>
+
+      <!-- Day 2, Stop 4 — Hayden Valley -->
+      <div class="stop" data-two-only>
+        <div class="stop-time-col">
+          <div class="stop-time">11:30 AM</div>
+          <div class="stop-time-end">– 1:00 PM</div>
+        </div>
+        <div class="stop-dot"></div>
+        <div class="stop-card">
+          <span class="stop-card-tag tag-wildlife">Wildlife</span>
+          <h2 class="stop-card-title">Hayden Valley → Return Home</h2>
+          <p class="stop-card-body">Drive south 15 miles from Canyon along the Yellowstone River into Hayden Valley. This is 50 square miles of open meadow and rolling hills — bison are nearly always present, and this is the most reliable spot in the park for seeing wolves and grizzlies from the roadside. Mid-morning activity is solid; animals are still moving before the midday heat. Drive the full length of the valley slowly and scan the hillsides. From the south end, turn back north and return via Canyon Junction → Norris → Madison → West Yellowstone. You'll be back at the lodge by approximately 2:15–2:30 PM.</p>
+          <ul class="stop-highlights">
+            <li>Best wolf and grizzly corridor in the park — scan hillsides on both sides</li>
+            <li>Return route: Hayden → Canyon → Norris → Madison → West Yellowstone (~70 miles, ~1h 20min)</li>
+          </ul>
+          <a href="https://maps.google.com/?q=Hayden+Valley,+Wyoming+82190" target="_blank" rel="noopener" class="stop-maps-link">📍 Hayden Valley — Open in Maps</a>
+        </div>
+      </div>
+
+    </div><!-- /stops -->
 
     <!-- TIPS -->
     <div class="tips-section">
@@ -1174,8 +1441,8 @@
   <script>
     function setMode(mode) {
       document.body.className = 'mode-' + mode;
-      document.getElementById('btn-full').classList.toggle('toggle-active', mode === 'full');
-      document.getElementById('btn-short').classList.toggle('toggle-active', mode === 'short');
+      document.getElementById('btn-one').classList.toggle('toggle-active', mode === 'one');
+      document.getElementById('btn-two').classList.toggle('toggle-active', mode === 'two');
     }
   </script>
 </body>
