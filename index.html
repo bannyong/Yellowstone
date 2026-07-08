@@ -587,6 +587,55 @@
       letter-spacing: 0.04em;
     }
 
+    /* ── CREW SECTION ─────────────────────────────────── */
+    .crew-section {
+      margin-bottom: 32px;
+    }
+
+    .crew-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 10px;
+    }
+
+    .crew-member {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .crew-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(26,48,68,0.18);
+    }
+
+    .crew-avatar svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .crew-name {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .crew-grid { grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    }
+    @media (max-width: 380px) {
+      .crew-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+
     /* ── TIPS SECTION ─────────────────────────────────── */
     .tips-section {
       margin-top: 40px;
@@ -718,6 +767,221 @@
 
   <!-- MAIN CONTENT -->
   <main class="content">
+
+    <!-- ── CREW ─────────────────────────────────────────── -->
+    <section class="crew-section">
+      <p class="section-label">The Crew</p>
+      <div class="crew-grid">
+      <div class="crew-member">
+        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#D9822C"/>
+  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#E8E8E8"/>
+  <line x1="30" y1="97" x2="70" y2="97" stroke="#D4C840" stroke-width="3.5" opacity="0.7"/>
+  <line x1="30" y1="103" x2="70" y2="103" stroke="#60B8C8" stroke-width="3.5" opacity="0.7"/>
+  <rect x="44" y="76" width="12" height="12" rx="3" fill="#F0B060"/>
+  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#F0B060"/>
+  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#F0B060"/>
+  <ellipse cx="50" cy="52" rx="26" ry="29" fill="#F0B060"/>
+  <ellipse cx="50" cy="23" rx="26" ry="12" fill="#0A0808"/>
+  <rect x="24" y="23" width="52" height="12" fill="#0A0808"/>
+  <path d="M24 27 Q38 19 52 23 Q64 19 76 27" fill="#0A0808"/>
+  <path d="M33 42 L44 42" stroke="#0A0808" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M56 42 L67 42" stroke="#0A0808" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="40" cy="51" rx="7" ry="3.8" fill="white"/>
+  <ellipse cx="60" cy="51" rx="7" ry="3.8" fill="white"/>
+  <circle cx="40" cy="52" r="3" fill="#2A1A0E"/>
+  <circle cx="60" cy="52" r="3" fill="#2A1A0E"/>
+  <circle cx="40" cy="52" r="1.5" fill="#0A0808"/>
+  <circle cx="60" cy="52" r="1.5" fill="#0A0808"/>
+  <circle cx="41" cy="50.5" r="1" fill="white"/>
+  <circle cx="61" cy="50.5" r="1" fill="white"/>
+  <path d="M50 57 L47 62 Q50 64 53 62 Z" fill="#C89050"/>
+  <path d="M41 68 Q50 73 59 68" stroke="#C07040" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg></div>
+        <span class="crew-name">Bryan</span>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#3A8FA3"/>
+  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#5A8AAA"/>
+  <rect x="44" y="76" width="12" height="12" rx="3" fill="#FFCA9B"/>
+  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#FFCA9B"/>
+  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#FFCA9B"/>
+  <ellipse cx="50" cy="54" rx="26" ry="31" fill="#FFCA9B"/>
+  <ellipse cx="50" cy="28" rx="12" ry="7" fill="white" opacity="0.07"/>
+  <path d="M34 44 Q39 42 44 43" stroke="#5A3A1A" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M56 43 Q61 42 66 44" stroke="#5A3A1A" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="40" cy="52" rx="5.5" ry="5" fill="white"/>
+  <ellipse cx="60" cy="52" rx="5.5" ry="5" fill="white"/>
+  <circle cx="40" cy="53" r="3.5" fill="#2A6888"/>
+  <circle cx="60" cy="53" r="3.5" fill="#2A6888"/>
+  <circle cx="40" cy="53" r="1.8" fill="#0A1A28"/>
+  <circle cx="60" cy="53" r="1.8" fill="#0A1A28"/>
+  <circle cx="41.5" cy="51" r="1.2" fill="white"/>
+  <circle cx="61.5" cy="51" r="1.2" fill="white"/>
+  <path d="M50 58 L47 63 Q50 65 53 63 Z" fill="#D8A878"/>
+  <ellipse cx="50" cy="72" rx="20" ry="9" fill="#8B6848" opacity="0.18"/>
+  <path d="M33 67 Q50 81 67 67 Q67 75 50 75 Q33 75 33 67 Z" fill="#B05030"/>
+  <path d="M33 67 Q50 81 67 67 Q67 72 50 72 Q33 72 33 67 Z" fill="white"/>
+</svg></div>
+        <span class="crew-name">Max</span>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#C45E6A"/>
+  <ellipse cx="34" cy="78" rx="14" ry="20" fill="#3A2010"/>
+  <ellipse cx="66" cy="78" rx="14" ry="20" fill="#3A2010"/>
+  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#1A1A1A"/>
+  <rect x="44" y="76" width="12" height="12" rx="3" fill="#F0B070"/>
+  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#F0B070"/>
+  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#F0B070"/>
+  <ellipse cx="50" cy="52" rx="26" ry="29" fill="#F0B070"/>
+  <ellipse cx="50" cy="24" rx="26" ry="12" fill="#3A2010"/>
+  <rect x="24" y="24" width="52" height="12" fill="#3A2010"/>
+  <path d="M24 28 Q38 20 52 24 Q64 20 76 28" fill="#3A2010"/>
+  <path d="M24 34 Q20 52 23 70" stroke="#3A2010" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M76 34 Q80 52 77 70" stroke="#3A2010" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M33 43 Q39 40 44 42" stroke="#2A1808" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M56 42 Q61 40 66 43" stroke="#2A1808" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="40" cy="51" rx="5.5" ry="5" fill="white"/>
+  <ellipse cx="60" cy="51" rx="5.5" ry="5" fill="white"/>
+  <circle cx="40" cy="52" r="3.5" fill="#3A2A1A"/>
+  <circle cx="60" cy="52" r="3.5" fill="#3A2A1A"/>
+  <circle cx="40" cy="52" r="1.8" fill="#0A0808"/>
+  <circle cx="60" cy="52" r="1.8" fill="#0A0808"/>
+  <circle cx="41.5" cy="50" r="1.2" fill="white"/>
+  <circle cx="61.5" cy="50" r="1.2" fill="white"/>
+  <path d="M50 57 L47 62 Q50 64 53 62 Z" fill="#C89060"/>
+  <path d="M37 67 Q50 77 63 67" stroke="#C07850" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="29" cy="61" rx="6" ry="4" fill="#D07060" opacity="0.18"/>
+  <ellipse cx="71" cy="61" rx="6" ry="4" fill="#D07060" opacity="0.18"/>
+  <circle cx="75" cy="50" r="2.5" fill="white" opacity="0.92"/>
+  <ellipse cx="75" cy="55" rx="1.8" ry="3.5" fill="none" stroke="white" stroke-width="1.8" opacity="0.85"/>
+</svg></div>
+        <span class="crew-name">Heather</span>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#5A7A9A"/>
+  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#7A7A8A"/>
+  <rect x="44" y="76" width="12" height="12" rx="3" fill="#FFCA9B"/>
+  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#FFCA9B"/>
+  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#FFCA9B"/>
+  <ellipse cx="50" cy="52" rx="26" ry="29" fill="#FFCA9B"/>
+  <ellipse cx="50" cy="24" rx="26" ry="12" fill="#3A2210"/>
+  <rect x="24" y="24" width="52" height="12" fill="#3A2210"/>
+  <path d="M24 27 Q38 19 52 23 Q64 19 76 27" fill="#3A2210"/>
+  <path d="M33 43 Q39 40 44 42" stroke="#3A2210" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M56 42 Q61 40 66 43" stroke="#3A2210" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="40" cy="51" rx="5.5" ry="5" fill="white"/>
+  <ellipse cx="60" cy="51" rx="5.5" ry="5" fill="white"/>
+  <circle cx="40" cy="52" r="3.5" fill="#3A2A1A"/>
+  <circle cx="60" cy="52" r="3.5" fill="#3A2A1A"/>
+  <circle cx="40" cy="52" r="1.8" fill="#0A0808"/>
+  <circle cx="60" cy="52" r="1.8" fill="#0A0808"/>
+  <circle cx="41.5" cy="50" r="1.2" fill="white"/>
+  <circle cx="61.5" cy="50" r="1.2" fill="white"/>
+  <path d="M50 57 L47 62 Q50 64 53 62 Z" fill="#D8A878"/>
+  <path d="M26 58 Q24 82 50 85 Q76 82 74 58 Q64 67 50 69 Q36 67 26 58 Z" fill="#2A1808"/>
+  <ellipse cx="50" cy="59" rx="13" ry="3.5" fill="#2A1808"/>
+  <path d="M33 67 Q50 82 67 67 Q67 74 50 74 Q33 74 33 67 Z" fill="#B05030"/>
+  <path d="M33 67 Q50 82 67 67 Q67 72 50 72 Q33 72 33 67 Z" fill="white"/>
+</svg></div>
+        <span class="crew-name">Nick</span>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#4A8A60"/>
+  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#C86020"/>
+  <rect x="44" y="76" width="12" height="12" rx="3" fill="#FFD8B0"/>
+  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#FFD8B0"/>
+  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#FFD8B0"/>
+  <ellipse cx="50" cy="52" rx="26" ry="29" fill="#FFD8B0"/>
+  <ellipse cx="50" cy="24" rx="26" ry="12" fill="#3A2010"/>
+  <rect x="24" y="24" width="52" height="12" fill="#3A2010"/>
+  <path d="M24 27 Q38 19 52 23 Q64 19 76 27" fill="#3A2010"/>
+  <path d="M33 43 Q39 40 44 42" stroke="#3A2010" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M56 42 Q61 40 66 43" stroke="#3A2010" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="40" cy="51" rx="5.5" ry="5" fill="white"/>
+  <ellipse cx="60" cy="51" rx="5.5" ry="5" fill="white"/>
+  <circle cx="40" cy="52" r="3.5" fill="#2A6888"/>
+  <circle cx="60" cy="52" r="3.5" fill="#2A6888"/>
+  <circle cx="40" cy="52" r="1.8" fill="#0A1A28"/>
+  <circle cx="60" cy="52" r="1.8" fill="#0A1A28"/>
+  <circle cx="41.5" cy="50" r="1.2" fill="white"/>
+  <circle cx="61.5" cy="50" r="1.2" fill="white"/>
+  <path d="M50 57 L47 62 Q50 64 53 62 Z" fill="#D8A878"/>
+  <path d="M37 68 Q50 78 63 68" stroke="#C07850" stroke-width="2" fill="none" stroke-linecap="round"/>
+</svg></div>
+        <span class="crew-name">Geno</span>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#8A6A9A"/>
+  <ellipse cx="34" cy="80" rx="15" ry="24" fill="#C8B070"/>
+  <ellipse cx="66" cy="80" rx="15" ry="24" fill="#C8B070"/>
+  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#F0F0F0"/>
+  <rect x="44" y="76" width="12" height="12" rx="3" fill="#FFE8D0"/>
+  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#FFE8D0"/>
+  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#FFE8D0"/>
+  <ellipse cx="50" cy="52" rx="26" ry="29" fill="#FFE8D0"/>
+  <ellipse cx="50" cy="24" rx="26" ry="12" fill="#C8B070"/>
+  <rect x="24" y="24" width="52" height="12" fill="#C8B070"/>
+  <path d="M24 28 Q38 20 52 24 Q64 20 76 28" fill="#C8B070"/>
+  <path d="M24 34 Q20 52 24 70" stroke="#C8B070" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M76 34 Q80 52 76 70" stroke="#C8B070" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <path d="M33 43 Q39 40 44 42" stroke="#9A8040" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M56 42 Q61 40 66 43" stroke="#9A8040" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="40" cy="51" rx="5.5" ry="5" fill="white"/>
+  <ellipse cx="60" cy="51" rx="5.5" ry="5" fill="white"/>
+  <circle cx="40" cy="52" r="3.5" fill="#2A6888"/>
+  <circle cx="60" cy="52" r="3.5" fill="#2A6888"/>
+  <circle cx="40" cy="52" r="1.8" fill="#0A1A28"/>
+  <circle cx="60" cy="52" r="1.8" fill="#0A1A28"/>
+  <circle cx="41.5" cy="50" r="1.2" fill="white"/>
+  <circle cx="61.5" cy="50" r="1.2" fill="white"/>
+  <path d="M50 57 L47 62 Q50 64 53 62 Z" fill="#D8A878"/>
+  <path d="M33 66 Q50 81 67 66 Q67 74 50 74 Q33 74 33 66 Z" fill="#B05030"/>
+  <path d="M33 66 Q50 81 67 66 Q67 71 50 71 Q33 71 33 66 Z" fill="white"/>
+  <ellipse cx="29" cy="61" rx="6" ry="4" fill="#E87070" opacity="0.18"/>
+  <ellipse cx="71" cy="61" rx="6" ry="4" fill="#E87070" opacity="0.18"/>
+</svg></div>
+        <span class="crew-name">Jessica</span>
+      </div>
+      <div class="crew-member">
+        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="50" r="50" fill="#1A3044"/>
+  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#1A1A1A"/>
+  <rect x="44" y="76" width="12" height="12" rx="3" fill="#FFCA9B"/>
+  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#FFCA9B"/>
+  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#FFCA9B"/>
+  <ellipse cx="50" cy="52" rx="26" ry="29" fill="#FFCA9B"/>
+  <ellipse cx="50" cy="22" rx="26" ry="14" fill="#3A2010"/>
+  <rect x="24" y="22" width="52" height="14" fill="#3A2010"/>
+  <path d="M24 28 Q38 17 54 21 Q66 16 76 28" fill="#3A2010"/>
+  <path d="M24 32 Q19 50 22 68" stroke="#3A2010" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M76 32 Q81 50 78 68" stroke="#3A2010" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <path d="M40 25 Q37 33 35 39" stroke="#3A2010" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M46 23 Q44 31 43 37" stroke="#3A2010" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M33 43 Q39 40 44 42" stroke="#3A2010" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <path d="M56 42 Q61 40 66 43" stroke="#3A2010" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="40" cy="51" rx="5.5" ry="5" fill="white"/>
+  <ellipse cx="60" cy="51" rx="5.5" ry="5" fill="white"/>
+  <circle cx="40" cy="52" r="3.5" fill="#1A8080"/>
+  <circle cx="60" cy="52" r="3.5" fill="#1A8080"/>
+  <circle cx="40" cy="52" r="1.8" fill="#0A1818"/>
+  <circle cx="60" cy="52" r="1.8" fill="#0A1818"/>
+  <circle cx="41.5" cy="50" r="1.2" fill="white"/>
+  <circle cx="61.5" cy="50" r="1.2" fill="white"/>
+  <path d="M50 57 L47 62 Q50 64 53 62 Z" fill="#D8A878"/>
+  <path d="M26 59 Q24 82 50 85 Q76 82 74 59 Q64 68 50 70 Q36 68 26 59 Z" fill="#2A1808"/>
+  <ellipse cx="50" cy="60" rx="13" ry="3.5" fill="#2A1808"/>
+  <path d="M41 68 Q50 74 59 68" stroke="#7A3820" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+</svg></div>
+        <span class="crew-name">Scott</span>
+      </div>
+      </div>
+    </section>
 
     <!-- ── TL;DR CARD ──────────────────────────────────── -->
     <!-- ── TL;DR CARD (Two Days) ────────────────────────── -->
