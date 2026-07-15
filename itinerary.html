@@ -7,7 +7,7 @@
   <title>Yellowstone — 2-Day Itinerary</title>
   <meta name="description" content="2-day Yellowstone itinerary for a group of seven, July 17–18 2026. West Yellowstone base. Day 1: west side — Fairy Falls, Grand Prismatic, Old Faithful, Lone Star. Day 2: east side — Norris, Grand Canyon of Yellowstone, Hayden Valley." />
   <meta property="og:title" content="Yellowstone — 2-Day Itinerary" />
-  <meta property="og:description" content="West Yellowstone base · Group of seven · One van · July 17–18. Two-day loop with hiking details and Google Maps links." />
+  <meta property="og:description" content="West Yellowstone base · Group of six · One van · July 17–18. Two-day loop with hiking details and Google Maps links." />
   <meta property="og:type" content="website" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -595,7 +595,7 @@
 
     .crew-grid {
       display: grid;
-      grid-template-columns: repeat(7, 1fr);
+      grid-template-columns: repeat(6, 1fr);
       gap: 10px;
     }
 
@@ -766,6 +766,30 @@
     }
     .site-nav-link:hover { color: rgba(255,255,255,0.95); }
     .site-nav-arrow { margin-right: 6px; }
+
+    /* ── PARKING BACKUP ──────────────────────────────── */
+    .parking-backup { margin-top: 14px; }
+    .parking-backup summary {
+      cursor: pointer; list-style: none;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: 'Josefin Sans', sans-serif; font-size: 9.5px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber);
+      background: var(--amber-soft); border: 1px solid rgba(217,130,44,0.22);
+      border-radius: 20px; padding: 5px 12px; transition: background 0.15s;
+      user-select: none;
+    }
+    .parking-backup summary::-webkit-details-marker { display: none; }
+    .parking-backup summary::after {
+      content: '▾'; font-size: 11px; margin-left: 2px;
+      display: inline-block; transition: transform 0.2s;
+    }
+    .parking-backup[open] summary::after { transform: rotate(-180deg); }
+    .parking-backup .backup-body {
+      margin-top: 10px; padding: 12px 14px;
+      background: var(--amber-soft); border: 1px solid rgba(217,130,44,0.18);
+      border-radius: 8px; font-size: 13px; line-height: 1.6; color: var(--body);
+    }
+    .parking-backup .backup-body strong { font-family: 'Josefin Sans', sans-serif; color: var(--deep); font-weight: 700; }
   </style>
 </head>
 <body>
@@ -940,40 +964,7 @@
 </svg></div>
         <span class="crew-name">Geno</span>
       </div>
-      <div class="crew-member">
-        <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="50" cy="50" r="50" fill="#8A6A9A"/>
-  <ellipse cx="34" cy="80" rx="15" ry="24" fill="#C8B070"/>
-  <ellipse cx="66" cy="80" rx="15" ry="24" fill="#C8B070"/>
-  <ellipse cx="50" cy="108" rx="38" ry="24" fill="#F0F0F0"/>
-  <rect x="44" y="76" width="12" height="12" rx="3" fill="#FFE8D0"/>
-  <ellipse cx="23" cy="52" rx="5" ry="7" fill="#FFE8D0"/>
-  <ellipse cx="77" cy="52" rx="5" ry="7" fill="#FFE8D0"/>
-  <ellipse cx="50" cy="52" rx="26" ry="29" fill="#FFE8D0"/>
-  <ellipse cx="50" cy="24" rx="26" ry="12" fill="#C8B070"/>
-  <rect x="24" y="24" width="52" height="12" fill="#C8B070"/>
-  <path d="M24 28 Q38 20 52 24 Q64 20 76 28" fill="#C8B070"/>
-  <path d="M24 34 Q20 52 24 70" stroke="#C8B070" stroke-width="10" fill="none" stroke-linecap="round"/>
-  <path d="M76 34 Q80 52 76 70" stroke="#C8B070" stroke-width="10" fill="none" stroke-linecap="round"/>
-  <path d="M33 43 Q39 40 44 42" stroke="#9A8040" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <path d="M56 42 Q61 40 66 43" stroke="#9A8040" stroke-width="2.2" fill="none" stroke-linecap="round"/>
-  <ellipse cx="40" cy="51" rx="5.5" ry="5" fill="white"/>
-  <ellipse cx="60" cy="51" rx="5.5" ry="5" fill="white"/>
-  <circle cx="40" cy="52" r="3.5" fill="#2A6888"/>
-  <circle cx="60" cy="52" r="3.5" fill="#2A6888"/>
-  <circle cx="40" cy="52" r="1.8" fill="#0A1A28"/>
-  <circle cx="60" cy="52" r="1.8" fill="#0A1A28"/>
-  <circle cx="41.5" cy="50" r="1.2" fill="white"/>
-  <circle cx="61.5" cy="50" r="1.2" fill="white"/>
-  <path d="M50 57 L47 62 Q50 64 53 62 Z" fill="#D8A878"/>
-  <path d="M33 66 Q50 81 67 66 Q67 74 50 74 Q33 74 33 66 Z" fill="#B05030"/>
-  <path d="M33 66 Q50 81 67 66 Q67 71 50 71 Q33 71 33 66 Z" fill="white"/>
-  <ellipse cx="29" cy="61" rx="6" ry="4" fill="#E87070" opacity="0.18"/>
-  <ellipse cx="71" cy="61" rx="6" ry="4" fill="#E87070" opacity="0.18"/>
-</svg></div>
-        <span class="crew-name">Jessica</span>
-      </div>
-      <div class="crew-member">
+            <div class="crew-member">
         <div class="crew-avatar"><svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
   <circle cx="50" cy="50" r="50" fill="#1A3044"/>
   <ellipse cx="50" cy="108" rx="38" ry="24" fill="#1A1A1A"/>
@@ -1022,7 +1013,7 @@
             </div>
             <div class="tldr-stat">
               <span class="tldr-stat-label">Back by</span>
-              <span class="tldr-stat-value">~2:00 PM</span>
+              <span class="tldr-stat-value">~2:30 PM</span>
             </div>
             <div class="tldr-stat">
               <span class="tldr-stat-label">Stops</span>
@@ -1033,7 +1024,7 @@
               <span class="tldr-stat-value">~10 mi</span>
             </div>
           </div>
-          <p class="tldr-summary">West side loop — Fairy Falls, Grand Prismatic, Old Faithful, Lone Star. Free afternoon.</p>
+          <p class="tldr-summary">West side loop — Fairy Falls overlook, Old Faithful, Lone Star, Grand Prismatic (afternoon return).</p>
         </div>
         <div class="tldr-day-block">
           <p class="tldr-eyebrow">Day 2 · Saturday, July 18</p>
@@ -1333,7 +1324,7 @@
         <div class="stop-card">
           <span class="stop-card-tag tag-depart">Departure</span>
           <h2 class="stop-card-title">Early Rise &amp; Depart West Yellowstone</h2>
-          <p class="stop-card-body">Pack water, snacks, and bear spray the night before. With seven people in one van, sort out who sits where and load gear the night before so you're rolling by 5:15 AM — the West Entrance typically opens at 5 AM in summer, and morning light is golden. The park is completely different before 8 AM.</p>
+          <p class="stop-card-body">Pack water, snacks, and bear spray the night before. With six people in one van, sort out who sits where and load gear the night before so you're rolling by 5:15 AM — the West Entrance typically opens at 5 AM in summer, and morning light is golden. The park is completely different before 8 AM.</p>
           <ul class="stop-highlights">
             <li>Stage gear the night before — 7 people and one van needs prep time to roll by 5:15 AM</li>
             <li>West Entrance opens at 5 AM; first cars through face zero queue</li>
@@ -1359,6 +1350,10 @@
             <li>No hiking needed; this is a slow-cruise, pull-over-often experience along the river</li>
           </ul>
           <a href="https://maps.google.com/?q=Madison+Junction+Picnic+Area,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Madison Junction Picnic Area — Open in Maps</a>
+          <details class="parking-backup">
+            <summary>🅿️ Parking backup</summary>
+            <div class="backup-body">Not a real concern — the valley has rolling pull-offs every few hundred yards over 14 miles. If one spot is occupied, simply drive ahead to the next one.</div>
+          </details>
         </div>
       </div>
 
@@ -1379,35 +1374,20 @@
             <li>Trail continues to Fairy Falls, a 200-foot waterfall tucked at the end of the path</li>
           </ul>
           <a href="https://maps.google.com/?q=Fairy+Falls+Trailhead,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Fairy Falls Trailhead — Open in Maps</a>
+          <details class="parking-backup">
+            <summary>🅿️ Parking backup</summary>
+            <div class="backup-body"><strong>Do not park on the road shoulder</strong> — rangers ticket heavily here. If the lot is full, drive 1.5 miles south to <strong>Biscuit Basin</strong> or <strong>Fountain Paint Pot</strong> and spend 30 minutes, then circle back. Turnover at Fairy Falls is constant as hikers finish up.</div>
+          </details>
         </div>
       </div>
 
-      <!-- Stop 4 -->
-      <div class="stop">
-        <div class="stop-line"></div>
-        <div class="stop-time-col">
-          <div class="stop-time">9:00</div>
-          <div class="stop-time-end">– 9:30 AM</div>
-        </div>
-        <div class="stop-dot"></div>
-        <div class="stop-card">
-          <span class="stop-card-tag tag-thermal">Thermal</span>
-          <h2 class="stop-card-title">Grand Prismatic Spring Boardwalk</h2>
-          <p class="stop-card-body">Heads up: the Fairy Falls Trailhead and the Midway Geyser Basin boardwalk are two completely separate parking areas about a mile apart — don't try to move the van between them at 9 AM in mid-July. The boardwalk lot is small and will be fully gridlocked by the time you finish the Fairy Falls hike. You have two honest options. Option 1: walk it — there's a flat path connecting the two areas, but it adds about 2 miles round trip and will push your timeline back 30–40 minutes. Option 2: skip it for now and come back in the early afternoon. Early morning is actually the worst time to see Grand Prismatic — the massive steam rising off the spring often completely obscures the color rings from both the overlook and the boardwalk. The vivid blues, greens, and oranges are best when the sun is high and has burned the steam off, typically between 11 AM and 2 PM. If you can find a parking gap on the way back from Lone Star, the afternoon view will be dramatically better than anything you'd see at 9 AM.</p>
-          <ul class="stop-highlights">
-            <li>Don't re-park the van — the boardwalk lot is a separate area ~1 mi away and will be gridlocked by 9 AM in peak July</li>
-            <li>Best colors are 11 AM–2 PM when steam clears; early morning is often foggy — consider swinging back on the return from Lone Star</li>
-          </ul>
-          <a href="https://maps.google.com/?q=Grand+Prismatic+Spring,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Grand Prismatic Spring — Open in Maps</a>
-        </div>
-      </div>
 
       <!-- Stop 5 -->
       <div class="stop">
         <div class="stop-line"></div>
         <div class="stop-time-col">
-          <div class="stop-time">9:30</div>
-          <div class="stop-time-end">– 11:00 AM</div>
+          <div class="stop-time">9:00</div>
+          <div class="stop-time-end">– 10:30 AM</div>
         </div>
         <div class="stop-dot"></div>
         <div class="stop-card">
@@ -1419,6 +1399,10 @@
             <li>Upper Geyser Basin boardwalk: densest geyser field on earth, most comfortable before the mid-morning crowds arrive</li>
           </ul>
           <a href="https://maps.google.com/?q=Old+Faithful+Geyser,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Old Faithful — Open in Maps</a>
+          <details class="parking-backup">
+            <summary>🅿️ Parking backup</summary>
+            <div class="backup-body">The complex is designed like a small city with massive asphalt fields. If the main visitor center lot is full, spots are always available deeper toward the lodges. You will find parking here.</div>
+          </details>
         </div>
       </div>
 
@@ -1426,8 +1410,8 @@
       <div class="stop">
         <div class="stop-line"></div>
         <div class="stop-time-col">
-          <div class="stop-time">11:00 AM</div>
-          <div class="stop-time-end">– 1:00 PM</div>
+          <div class="stop-time">10:45 AM</div>
+          <div class="stop-time-end">– 12:45 PM</div>
         </div>
         <div class="stop-dot"></div>
         <div class="stop-card">
@@ -1439,6 +1423,30 @@
             <li>Lone Star erupts ~every 3 hours and shoots 45 ft; worth a 20–30 min wait if the timing lines up</li>
           </ul>
           <a href="https://maps.google.com/?q=Lone+Star+Geyser+Trailhead,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Lone Star Geyser Trailhead — Open in Maps</a>
+          <details class="parking-backup">
+            <summary>🅿️ Parking backup</summary>
+            <div class="backup-body">If the trailhead pull-off is full, drive 0.3 miles north to the <strong>Kepler Cascades</strong> lot — a designated roadside pull-off with a viewing platform. An established trail connects directly to the Lone Star bike path, adding only ~5 minutes of walking. If both lots are full, park at Old Faithful and hike <strong>Observation Point</strong> instead (trailhead behind the Firehole River) — a solid uphill climb with a panoramic birds-eye view of the entire geyser basin, well above the crowds below.</div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Stop 6 — Grand Prismatic (afternoon) -->
+      <div class="stop">
+        <div class="stop-line"></div>
+        <div class="stop-time-col">
+          <div class="stop-time">1:15</div>
+          <div class="stop-time-end">– 2:00 PM</div>
+        </div>
+        <div class="stop-dot"></div>
+        <div class="stop-card">
+          <span class="stop-card-tag tag-thermal">Thermal</span>
+          <h2 class="stop-card-title">Grand Prismatic Spring Boardwalk</h2>
+          <p class="stop-card-body">On the drive back north toward West Yellowstone, pull into the Midway Geyser Basin lot for the Grand Prismatic boardwalk. This is the right time to do it: the sun is high enough to burn off the massive steam column that obscures the spring's color rings in the early morning, and early afternoon light brings out the full spectrum of vivid blues, greens, and oranges that make Grand Prismatic the most photographed feature in the park. Morning visitors are largely gone by noon, and the boardwalk — while never empty in July — is far more manageable than at peak mid-morning. The loop is short (roughly 0.75 miles), flat, and entirely on boardwalk.</p>
+          <ul class="stop-highlights">
+            <li>Best time of day for colors — sun burns the steam off by midday, revealing the full rings of deep blue, teal, green, and amber</li>
+            <li>Short 0.75-mile flat boardwalk loop; the right capstone stop on the return to the lodge</li>
+          </ul>
+          <a href="https://maps.google.com/?q=Midway+Geyser+Basin,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Midway Geyser Basin — Open in Maps</a>
         </div>
       </div>
 
@@ -1488,6 +1496,10 @@
             <li>Porcelain Basin loop (0.75 mi): bright open silica flats, good if time is short</li>
           </ul>
           <a href="https://maps.google.com/?q=Norris+Geyser+Basin,+Yellowstone+National+Park" target="_blank" rel="noopener" class="stop-maps-link">📍 Norris Geyser Basin — Open in Maps</a>
+          <details class="parking-backup">
+            <summary>🅿️ Parking backup</summary>
+            <div class="backup-body">Arriving by 8 AM almost always secures a prime spot at the main basin trailhead. An overflow lot is available on the south side of the junction as a fallback, but your early start makes it highly unlikely you'll need it.</div>
+          </details>
         </div>
       </div>
 
@@ -1527,6 +1539,10 @@
             <li>Return route: Hayden → Canyon → Norris → Madison → West Yellowstone (~70 miles, ~1h 20min)</li>
           </ul>
           <a href="https://maps.google.com/?q=Hayden+Valley,+Wyoming+82190" target="_blank" rel="noopener" class="stop-maps-link">📍 Hayden Valley — Open in Maps</a>
+          <details class="parking-backup">
+            <summary>🅿️ Parking backup</summary>
+            <div class="backup-body">Same story as Madison — constant rolling pull-offs over 16 miles of open valley. If one is occupied, just drive a few hundred yards to the next one.</div>
+          </details>
         </div>
       </div>
 
